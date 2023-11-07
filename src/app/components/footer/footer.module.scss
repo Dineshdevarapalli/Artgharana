@@ -1,0 +1,301 @@
+@import '../../styles/_mixin';
+
+.footer {
+    position: relative;
+
+    &_top {
+        position: relative;
+        background: url('../../../../public/images/footer.jpg') no-repeat center center;
+        background-position: bottom center;
+        background-size: cover;
+        padding: 80px 0 60px 0;
+
+        @include mobile {
+            padding: 80px 0 0 0;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(to bottom, rgba(color(back), 0.9), color(back));
+            z-index: 1;
+        }
+
+        &_wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+
+            .title {
+                font-family: $ptsans;
+                font-size: 80px;
+                font-weight: bold;
+                color: color(white);
+                line-height: 1.2;
+                text-shadow: 4px 4px 4px rgba(color(white), 0.1);
+                text-align: center;
+                margin-bottom: 20px;
+
+                @include tab {
+                    font-size: 41px;
+                }
+
+                @include mobile {
+                    font-size: 26px;
+                }
+            }
+    
+            .text {
+                font-size: 32px;
+                color: color(white);
+                line-height: 1.5;
+                font-weight: 300;
+                letter-spacing: 0.5px;
+                opacity: 0.8;
+                margin-bottom: 40px; 
+
+                @include mobile {
+                    font-size: 18px;
+                }        
+            }
+    
+            .btn_box {
+                background: linear-gradient(to right bottom, color(primary), lighten(color(primary), 2.5%));
+                box-shadow: 4px 4px 8px rgba(color(back), 0.8);
+                border-radius: 50px;
+                padding: 5px 5px 5px 30px;
+                display: flex;
+                align-items: center;
+                text-transform: uppercase;
+                color: rgba($color: color(white), $alpha: 0.75);
+                font-size: 16px;
+                letter-spacing: 1px;    
+
+                @include mobile {
+                    font-size: 13px;
+                    padding: 3px 3px 3px 15px;
+                } 
+
+                span {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    background-color: color(white);
+                    height: 50px;
+                    width: 50px;
+                    border-radius: 50%;
+                    margin-left: 20px;
+
+                    @include mobile {
+                        width: 36px;
+                        height: 36px;
+                    }
+    
+                    svg {
+                        height: 30px;
+                        width: 30px;
+                        fill: color(primary);
+                    }
+                }
+            }
+        }
+    }
+
+    &_bottom {
+        background-color: color(back);
+
+        &_main {
+            position: relative;
+            padding: 80px 0;
+
+            @include tab{
+                padding: 30px 0;
+            }
+
+            &_wrap {
+                display: flex;
+                align-items: flex-start;
+                flex-wrap: wrap;
+
+                @include tab {
+                    display: block;  
+                }
+
+                .logo {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    width: 35%;
+                    flex-direction: column;
+
+                    @include tab {
+                        width: 100%;
+                    }
+        
+                    .logo_block {
+                        height: 150px;
+                        margin-left: -20px;
+        
+                        svg {
+                            height: 100%;
+                            width: 100%;
+                        }
+                    }
+
+                    .text {
+                        font-size: 15px;
+                        color: rgba($color: color(white), $alpha: 0.65);
+                        line-height: 1.8;
+                        width: 70%;
+
+                        @include tab {
+                            font-size: 13px;
+                        }
+
+                        @include mobile {
+                            width: 100%;
+                        }
+                    }
+                }
+
+                .menu {
+                    display: flex;
+                    align-items: flex-start;
+                    justify-content: space-between;
+                    flex-wrap: wrap;
+                    flex: 1;
+                    
+                    @include tab {
+                        width: 100%;                        
+                    }
+
+                    @include tiny {
+                        width: 100%;
+                    }
+
+                    &_item {
+                        width: 24%;
+
+                        @include tab {
+                            width: 50%;
+                            padding-top: 30px;
+                        }
+
+                        &_title {
+                            display: block;
+                            font-size: 16px;
+                            font-weight: 600;
+                            color: color(white);
+                            padding: 10px 0 20px 0;
+                        }
+
+                        ul {
+
+                            li {
+
+                                a, button {
+                                    display: block;
+                                    font-size: 15px;
+                                    color: rgba($color: color(white), $alpha: 0.6);
+                                    padding: 6px 0;
+                                    font-weight: 400;
+                                    white-space: nowrap;
+
+                                    @include mobile {
+                                        font-size: 14px;
+                                    }
+                                }
+                            }
+                        }
+
+                        .social {
+                            display: flex;
+                            align-items: center;
+                            
+                            &_item {
+                                padding: 10px 0;
+                                margin-right: 20px;
+                                
+                                a {
+                                    display: block;
+
+                                    svg {
+                                        height: 20px;
+                                        width: 20px;
+                                        fill: color(white);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &_meta {
+            
+            &_wrap {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap;
+                padding: 20px 0;
+                border-top: 1px solid rgba($color: color(white), $alpha: 0.1);
+
+                @include tab {
+                    width: 100%;
+                }
+
+                @include mobile {
+                    width: 100%;    
+                }
+
+                p {
+                    font-size: 16px;
+                    font-weight: 300;
+                    color: rgba($color: color(white), $alpha: 0.65);
+
+                    @include tab {
+                        font-size: 14px;
+                    }
+
+                    @include mobile {
+                        font-size: 14px;
+                        padding-top:10px;
+                    }
+
+                    a {
+                        color: color(primary);
+                        font-weight: bold;
+                    }
+                }
+            }
+    
+            .copy_rights_section {
+                font-size: 15px;
+                color: color(lighttext); 
+            }
+    
+            .policy_section {
+                font-size: 15px;
+                color: color(lighttext);
+                
+                span {
+                    color: color(white);
+                }
+            }
+        }
+    }
+}

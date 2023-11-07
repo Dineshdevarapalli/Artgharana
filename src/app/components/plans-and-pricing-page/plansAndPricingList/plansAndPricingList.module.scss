@@ -1,0 +1,60 @@
+@import '../../../styles/_mixin';
+
+.plans {
+    position: relative;
+    padding: 80px 0px;
+
+    @include mobile {
+        padding: 40px 0px;
+    }
+
+    &_wrap {
+        position: relative;
+
+        .title_area {
+            margin-bottom: 60px;
+    
+            .title {
+                font-size: 65px;
+                font-weight: bold;
+                color: color(text);
+                line-height: 1.2;
+                font-family: $ptsans;
+                text-align: center;                
+            
+                span {
+                    color: color(primary);
+                    font-family: $ptsans;
+                }
+
+                @include mobile {
+                    font-size: 46px;
+                    text-align: left;
+                }
+            }
+    
+            .text {
+                text-align: center;
+                color: color(lighttext);
+                line-height: 1.6;
+                font-size: 22px;
+                margin-top: 20px;
+
+                @include mobile {
+                    text-align: left;
+                }
+            }
+
+            @include mobile {
+                margin-bottom: 20px;
+            }
+        }
+
+        &_inner {
+            display: flex;
+            flex-wrap: wrap;
+            width: calc(100% + 30px);
+            margin-left: -15px;
+        }
+    }
+}

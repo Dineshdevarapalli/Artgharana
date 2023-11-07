@@ -1,0 +1,79 @@
+@import './_mixin';
+
+.text_block {
+    position: relative;
+    padding: 80px 0px;
+
+    @include mobile {
+        padding: 40px 0px;
+    }
+
+    &_wrap {
+        position: relative;
+
+        .title_area {
+            margin-bottom: 60px;
+    
+            .title {
+                font-size: 65px;
+                font-weight: bold;
+                color: color(text);
+                line-height: 1.2;
+                font-family: $ptsans;
+                text-align: center;                
+            
+                span {
+                    color: color(primary);
+                    font-family: $ptsans;
+                }
+
+                @include mobile {
+                    font-size: 46px;
+                    text-align: left;
+                }
+            }
+
+            @include mobile {
+                margin-bottom: 20px;
+            }
+        }
+
+        &_inner {
+            
+            .text {
+                color: color(lighttext);
+                line-height: 2;
+                font-size: 15px;
+            }
+
+            ol {
+                margin-top: 50px;
+
+                li {
+                    color: color(lighttext);
+                    line-height: 2;
+                    font-size: 15px;
+                    margin-bottom: 20px;
+
+                    span {
+                        font-weight: bold;
+                        text-transform: uppercase;
+                    }
+                }
+            }
+
+            .section {
+                margin: 30px 0;
+
+                .title {
+                    font-size: 32px;
+                    font-weight: bold;
+                    color: color(text);
+                    line-height: 1.2;
+                    font-family: $ptsans;
+                    margin-bottom: 15px;
+                }
+            }
+        }
+    }
+}

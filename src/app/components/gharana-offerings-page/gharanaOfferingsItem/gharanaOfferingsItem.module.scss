@@ -1,0 +1,94 @@
+@import '../../../styles/_mixin';
+
+.offering_item {
+    position: relative;
+    width: calc((100% / 3) - 30px);
+    margin: 15px;
+    border-radius: 30px;
+    text-align: left;
+    overflow: hidden;
+
+    @include tab {
+        width: calc((100% / 2) - 30px);
+    }
+
+    @include mobile {
+        width: 100%;
+    }    
+
+    &_image {
+        height: 350px;
+        border-radius: 30px;
+        overflow: hidden;
+        position: relative;
+
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            filter: brightness(0.6);
+        }
+
+        .play_btn {
+            z-index: 1;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            background-color: color(white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease-in-out;
+
+            svg {
+                height: 20px;
+                width: 20px;
+                fill: color(dark);
+            }
+        }
+    }
+
+    &_content {
+        position: absolute;
+        left: 20px;
+        right: 20px;
+        bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        padding: 14px 20px;
+        border-radius: 20px;
+        background-color: white;
+        z-index: 1;
+
+        .title {
+            font-size: 20px;
+            color: color(text);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .text {
+            font-size: 14px;
+            color: color(lighttext);
+            font-weight: 400;
+
+            @include mobile {
+                font-size: 12px;
+            }
+        }
+    }
+
+    &:hover {
+
+        .offering_item_image {
+
+            .play_btn {
+                outline: 12px solid rgba($color: color(primary), $alpha: 0.75);
+            }
+        }
+    }
+}

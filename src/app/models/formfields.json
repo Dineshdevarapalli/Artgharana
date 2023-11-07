@@ -1,0 +1,438 @@
+{
+    "contact": {
+        "first_name": {
+            "label": "First Name*",
+            "placeholder": "enter first name",
+            "errors": {
+                "required": "first name is required",
+                "min": "first name has to be minimum 3 characters!",
+                "max": "first name can not exceed 40 characters!"
+            }
+        },
+        "last_name": {
+            "label": "Last Name*",
+            "placeholder": "enter last name",
+            "errors": {
+                "required": "last name is required",
+                "min": "last name has to be minimum 3 characters!",
+                "max": "last name can not exceed 40 characters!"
+            }
+        },
+        "email": {
+            "label": "Email*",
+            "placeholder": "enter email",
+            "errors": {
+                "valid": "please enter a valid email!",
+                "required": "email is required!"
+            }
+        },
+        "phone": {
+            "label": "Phone",
+            "placeholder": "enter phone",
+            "errors": {
+                "max": "phone can not exceed 13 characters!",
+                "required": "phone is required!"
+            }
+        },
+        "country": {
+            "label": "Country*",
+            "placeholder": "enter country name",
+            "button": "select country",
+            "search": "search country",
+            "errors": {
+                "required": "country is required!"
+            }
+        },
+        "art_forms": {
+            "label": "ArtForms*",
+            "placeholder": "enter art forms name",
+            "button": "select art forms",
+            "search": "search art forms",
+            "errors": {
+                "required": "art forms is required!"
+            }
+        },
+        "message": {
+            "label": "Message*",
+            "placeholder": "enter message (max 200 characters)",
+            "errors": {
+                "min": "message has to be minimum 20 characters!",
+                "max": "message can not exceed 200 characters!",
+                "required": "message is required!"
+            }
+        }
+    },
+    "subscribe": {
+        "email": {
+			"label": "Email*",
+			"placeholder": "enter email",
+			"errors": {
+				"valid": "please enter a valid email!",
+				"required": "email is required!"
+			}
+        }
+    },
+    "Application": {
+      "first_name": {
+        "label": "First Name",
+        "placeholder": "First Name",
+        "errors": {
+          "required": "First name is required",
+          "pattern": {
+            "value": "^[A-Za-z]+$",
+            "message": "Please enter a valid first name"
+          },
+          "maxLength": {
+            "value": 30,
+            "message": "First name cannot exceed 30 characters"
+          },
+          "minLength": {
+            "value": 3,
+            "message": "First name must have a minimum of 3 characters"
+          }
+        }
+      },
+      "full_name": {
+        "label": "full name",
+        "placeholder": "fullname",
+        "errors": {
+          "required": "First name is required",
+          "pattern": {
+            "value": "^[A-Za-z]+$",
+            "message": "Please enter a valid first name"
+          },
+          "maxLength": {
+            "value": 30,
+            "message": "First name cannot exceed 30 characters"
+          },
+          "minLength": {
+            "value": 3,
+            "message": "First name must have a minimum of 3 characters"
+          }
+        }
+      },
+      "last_name": {
+        "label": "Last Name",
+        "placeholder": "Last Name",
+        "errors": {
+          "required": "Last name is required",
+          "pattern": {
+            "value": "^[A-Za-z]+$",
+            "message": "Please enter a valid last name"
+          },
+          "maxLength": {
+            "value": 30,
+            "message": "Last name cannot exceed 30 characters"
+          },
+          "minLength": {
+            "value": 3,
+            "message": "Last name must have a minimum of 3 characters"
+          }
+        }
+      },
+      "choose": {
+        "label": "Attachments",
+        "errors": {
+          "required": "File is required"
+        }
+      },
+      "country": {
+        "label": "Country",
+        "placeholder": "Country",
+        "errors": {
+          "required": "Country is required",
+          "maxLength": {
+            "value": 30,
+            "message": "Country name cannot exceed 30 characters"
+          },
+          "minLength": {
+            "value": 3,
+            "message": "Country name must have a minimum of 3 characters"
+          }
+        }
+      },
+      "skill": {
+        "label": "Choose",
+        "placeholder": "Choose your  interests"
+      },
+      
+      "art_forms": {
+        "label": "ArtForms",
+        "placeholder": "ArtForms",
+        "errors": {
+          "required": "Art is required",
+          "maxLength": {
+            "value": 30,
+            "message": "Art name cannot exceed 30 characters"
+          },
+          "minLength": {
+            "value": 3,
+            "message": "Art name must have a minimum of 3 characters"
+          }
+        }
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "Email",
+        "errors": {
+          "required": "Email is required",
+          "pattern": {
+            "value": "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$",
+            "message": "Please enter a valid email"
+          }
+        }
+      },
+      "phone": {
+        "label": "Phone",
+        "placeholder": "Phone",
+        "errors": {
+          "required": "Phone number is required",
+          "pattern": {
+            "value": "^[6-9]{1}[0-9]{9}$",
+            "message": "Please enter a valid phone number (e.g., 9876543210)"
+          }
+        }
+      },
+      "subject": {
+        "label": "Subject",
+        "placeholder": "Subject",
+        "errors": {
+          "required": "Subject is required",
+          "maxLength": {
+            "value": 30,
+            "message": "Subject cannot exceed 30 characters"
+          },
+          "minLength": {
+            "value": 3,
+            "message": "Subject must have a minimum of 3 characters"
+          }
+        }
+      },
+      "message": {
+        "label": "Write to us",
+        "placeholder": "Your Message",
+        "errors": {
+          "required": "Message is required",
+          "minLength": {
+            "value": 6,
+            "message": "Message must have a minimum of 6 characters"
+          }
+        }
+      }
+    },
+    "Career": {
+      "first_name": {
+        "label": "First Name",
+        "placeholder": "First Name",
+        "errors": {
+          "required": "First name is required",
+          "pattern": {
+            "value": "^[A-Za-z]+$",
+            "message": "Please enter a valid first name"
+          },
+          "maxLength": {
+            "value": 30,
+            "message": "First name cannot exceed 30 characters"
+          },
+          "minLength": {
+            "value": 3,
+            "message": "First name must have a minimum of 3 characters"
+          }
+        }
+      },
+      "last_name": {
+        "label": "Last Name",
+        "placeholder": "Last Name",
+        "errors": {
+          "required": "Last name is required",
+          "pattern": {
+            "value": "^[A-Za-z]+$",
+            "message": "Please enter a valid last name"
+          },
+          "maxLength": {
+            "value": 30,
+            "message": "Last name cannot exceed 30 characters"
+          },
+          "minLength": {
+            "value": 3,
+            "message": "Last name must have a minimum of 3 characters"
+          }
+        }
+      },
+      "file": {
+        "label": "Drop your CV",
+        "errors": {
+          "required": "File is required"
+        }
+      },
+      "country": {
+        "label": "Country",
+        "placeholder": "Country",
+        "errors": {
+          "required": "Country is required",
+          "maxLength": {
+            "value": 30,
+            "message": "Country name cannot exceed 30 characters"
+          },
+          "minLength": {
+            "value": 3,
+            "message": "Country name must have a minimum of 3 characters"
+          }
+        }
+      },
+      "country_code": {
+        "label": "Phone",
+        "placeholder": "Code",
+        "errors": {
+          "required": "",
+          "maxLength": {
+            "value": 30,
+            "message": "Country name cannot exceed 30 characters"
+          },
+          "minLength": {
+            "value": 0,
+            "message": "Country name must have a minimum of 3 characters"
+          }
+        }
+      },
+      "art_forms": {
+        "label": "ArtForms",
+        "placeholder": "ArtForms",
+        "errors": {
+          "required": "Art is required",
+          "maxLength": {
+            "value": 30,
+            "message": "Art name cannot exceed 30 characters"
+          },
+          "minLength": {
+            "value": 3,
+            "message": "Art name must have a minimum of 3 characters"
+          }
+        }
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "Email",
+        "errors": {
+          "required": "Email is required",
+          "pattern": {
+            "value": "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$",
+            "message": "Please enter a valid email"
+          }
+        }
+      },
+  
+      "phone": {
+        "label": "Phone",
+        "placeholder": "Phone",
+        "errors": {
+          "required": "Phone number is required",
+          "pattern": {
+            "value": "^[6-9]{1}[0-9]{9}$",
+            "message": "Please enter a valid phone number (e.g., 9876543210)"
+          }
+        }
+      },
+      "subject": {
+        "label": "Subject",
+        "placeholder": "Subject",
+        "errors": {
+          "required": "Subject is required",
+          "maxLength": {
+            "value": 30,
+            "message": "Subject cannot exceed 30 characters"
+          },
+          "minLength": {
+            "value": 3,
+            "message": "Subject must have a minimum of 3 characters"
+          }
+        }
+      },
+      "message": {
+        "label": "Write to us",
+        "placeholder": "Your Message",
+        "errors": {
+          "required": "Message is required",
+          "minLength": {
+            "value": 6,
+            "message": "Message must have a minimum of 6 characters"
+          }
+        }
+      }
+    },
+    "Review": {
+      "name": {
+        "label": "Name",
+        "placeholder": "Enter your Name",
+        "errors": {
+          "required": " Name is required",
+          "pattern": {
+            "value": "^[A-Za-z]+$",
+            "message": "Please enter a valid name"
+          },
+          "maxLength": {
+            "value": 30,
+            "message": " Name cannot exceed 30 characters"
+          },
+          "minLength": {
+            "value": 3,
+            "message": " Name must have a minimum of 3 characters"
+          }
+        }
+      },
+      "skill": {
+        "label": "Skill",
+        "placeholder": "Enter your skill",
+        "errors": {
+          "required": "Sjill is required",
+          "pattern": {
+            "value": "^[A-Za-z]+$",
+            "message": "Please enter a valid first skill"
+          },
+          "maxLength": {
+            "value": 30,
+            "message": "Skill cannot exceed 30 characters"
+          },
+          "minLength": {
+            "value": 3,
+            "message": "Skill must have a minimum of 3 characters"
+          }
+        }
+      },
+  
+      "email": {
+        "label": "Email",
+        "placeholder": "Enter your email",
+        "errors": {
+          "required": "Email is required",
+          "pattern": {
+            "value": "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$",
+            "message": "Please enter a valid email"
+          }
+        }
+      },
+  
+      "message": {
+        "label": "Write to us",
+        "placeholder": "Your Message",
+        "errors": {
+          "required": "Message is required",
+          "minLength": {
+            "value": 6,
+            "message": "Message must have a minimum of 6 characters"
+          }
+        }
+      },
+      "image": {
+        "label": "Drop your image",
+        "errors": {
+            "required": " Image is required",
+            "pattern": {
+                "value": "'image/png': ['.png','.jpg','.jpeg','.webp']"
+                
+            }
+        }
+     }
+    }
+  }
+  

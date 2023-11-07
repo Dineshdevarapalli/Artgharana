@@ -1,0 +1,123 @@
+$colors: (
+    back: #171630,
+    primary: #e56736,
+    Secondary: #d2537c,
+    text: #1f1e42,
+    lighttext: #67717d,
+    extraDark: darken($color: #212B40, $amount: 10),
+    dark: #212B40,
+    yellow: #C2E078,
+    blue: #547B97,
+    lightBlue: #BADCDD,
+    gray: rgb(250, 250, 250),
+    bg: darken($color: #F2F6F9, $amount: 5),
+    white: #fff,
+    link: #408dfb,
+    black: #1e1a1a,
+    error: #e73838,
+    input: #F5F9FE
+);
+
+$primaryFont: var(--font-opensans);
+$ptsans: var(--font-ptsans);
+
+$sm: 767px;
+$md: 992px;
+$lg: 1024px;
+$lgl: 1228px;
+$xl: 1441px;
+
+@mixin xl {
+    @media (min-width: #{$xl}) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: #{$lg}) {
+        @content;
+    }
+}
+
+@mixin desktop_small {
+    @media (max-width: #{$lgl}) {
+        @content;
+    }
+}
+
+@mixin small-desktop {
+    @media (max-width: #{$lg}) {
+        @content;
+    }
+}
+
+@mixin small {
+    @media (min-width: 1200px) {
+        @content;
+    }
+}
+
+@mixin tab {
+    @media (max-width: #{$md}) {
+        @content;
+    }
+}
+
+@mixin from-tab {
+    @media (min-width: #{$sm}) {
+        @content;
+    }
+}
+
+@mixin till-large {
+    @media (max-width: 1200px) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media (max-width: #{$sm}) {
+        @content;
+    }
+}
+
+@mixin sm {
+    @media (max-width: 680px) {
+        @content;
+    }
+}
+
+@mixin xs {
+    @media (max-width: 540px) {
+        @content;
+    }
+}
+
+@mixin tiny {
+    @media (max-width: 425px) {
+        @content;
+    }
+}
+@mixin xl-tiny {
+    @media (max-width:375px) {
+        @content;
+    }
+}
+@function color($color-name) {
+    @return map-get($colors, $color-name);
+}
+
+@function blueWithOpacity($opacity) {
+    @return rgba($color: color(blue), $alpha: $opacity);
+}
+
+@mixin uiLightBtn {
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+    margin: 5px;
+    height: 40px;
+    font-size: 14px;
+    border-radius: 8px;
+    border: 1.5px solid darken($color: color(bg), $amount: 5);
+}

@@ -1,0 +1,27 @@
+@import '../../../styles/_mixin';
+
+.container_box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    // min-height: 700px;
+    padding: 50px 0;
+
+    svg {
+        width: 400px;
+        height: 400px;
+    }
+
+    .text {
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 1.5;
+        letter-spacing: 0.2px;
+        color: color(text);
+        font-weight: 900;
+        text-transform: capitalize;
+        margin-bottom: 20px;
+    }
+}

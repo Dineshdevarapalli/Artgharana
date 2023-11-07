@@ -1,0 +1,137 @@
+@import './_mixin.scss';
+
+html {
+    overflow-x: hidden !important;
+    scroll-behavior: smooth;
+    font-family: $primaryFont;
+    margin: 0;
+    padding: 0;
+
+    body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden !important;
+        scroll-behavior: smooth;
+		letter-spacing: .24px;
+        font-family: $primaryFont;
+        background-color: #fff;
+
+        * {
+            font-family: $primaryFont;
+        }
+       
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin-bottom: 0;
+        }
+
+        p,
+        a,
+        ul li {
+            margin-bottom: 0;
+        }
+
+        input,
+        button,
+        textarea,
+        label {
+            margin-bottom: 0;
+            
+        }
+
+		label {
+			display: block;
+		}
+
+        a {
+            text-decoration: none !important;
+        }
+
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+        }
+
+        img {
+            width: 100%;
+            max-width: 100%;
+        }
+
+        button:active,
+        button:focus,
+        input:active,
+        input:focus,
+        input:focus-visible {
+            box-shadow: none;
+            outline: 0;
+        }
+
+		.form_control {
+			display: block;
+    		width: 100%;
+		}
+		
+        button:focus {
+            outline: 0;
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        button {
+            cursor: pointer;
+			display: inline-block;
+            border: none;
+            padding: 0px;
+            background: transparent;
+            font-family: $primaryFont;
+        }
+
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            appearance: none;
+            margin: 0;
+        }
+    }
+}
+
+.contain {
+    max-width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+	padding-right: 25px;
+	padding-left: 25px;
+
+    @include mobile {
+        padding: 0px 15px;
+    }
+}
+
+.text {
+    font-size: 16px;
+    line-height: 1.625;
+    color: color(light_gray);
+}
+
+.title {
+    line-height: 46px;
+    font-weight: 800;
+    color: color(dark_eclipse);
+    font-size: 32px;
+}
+
+.loader {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: color(dark);
+    font-weight: 900;
+}

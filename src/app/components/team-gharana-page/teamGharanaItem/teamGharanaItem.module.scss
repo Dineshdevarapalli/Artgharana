@@ -1,0 +1,186 @@
+@import '../../../styles/_mixin';
+
+.team_item {
+    position: relative;
+    width: calc((100% / 3) - 30px);
+    margin: 15px;
+
+    &.second {
+        transform: translateY(80px);
+    }
+
+    &.third {
+        transform: translateY(160px);
+    }
+
+    @include tab {
+        width: calc((100% / 2) - 30px);
+
+        &.second, &.third {
+            transform: unset;
+        }
+
+        &:nth-child(even) {
+            transform: translateY(80px);   
+        }
+    }
+
+    @include mobile {
+        width: 100%;
+
+        &:nth-child(even) {
+            transform: unset;
+        }
+    }
+
+    &_image {
+        height: 350px;
+        width: 100%;
+        border-radius: 30px;
+        text-align: left;
+        overflow: hidden;
+        position: relative;
+
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &_content {
+        padding-top: 20px;
+        cursor: pointer;        
+
+        button {
+            color: color(primary);
+            font-size: 15px;
+            font-weight: 500;
+            text-decoration: underline !important;
+        }
+    }
+}
+
+.content_popper {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    background: rgba(24, 26, 31, 0.25);
+    overflow-y: auto;
+    z-index: 9;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+   
+    &_box {
+        border-radius: 6px;
+        width: 60%;
+        margin: auto;
+        overflow: hidden;
+        position: relative;
+        background-color: color(white);
+    
+        @include mobile {
+            height: 100vh;
+            width: 100vw;
+        }
+
+        .content {
+            max-height: 500px;
+            overflow-y: auto;
+            padding: 25px 40px 40px 40px;
+
+            @include mobile {
+                padding: 20px;
+                max-height: unset;
+                height: 100%;
+            }
+
+            &::-webkit-scrollbar {
+                height: 2px;
+                width: 6px;
+
+                @include mobile {
+                    display: none;
+                }
+            }
+
+            &::-webkit-scrollbar-track {
+                box-shadow: 0;
+                border-radius: 3px;
+                margin: 12px 0px;
+                margin-left: 8px;
+                background-color: #F9F8F8;
+
+                @include mobile {
+                    display: none;
+                }
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background: #DEDEDE;
+                border-radius: 3px;
+
+                @include mobile {
+                    display: none;
+                }
+            }
+
+            .title_wrap {
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+                border-bottom: 1px solid rgba($color: #000000, $alpha: 0.1);
+                margin-bottom: 20px;
+
+                &_content {
+                    max-width: 90%;
+                    position: relative;
+                }
+
+                button {
+                    display: block;
+                    flex-shrink: 0;
+        
+                    svg {
+                        height: 25px;
+                        width: 25px;
+                        fill: color(dark);
+                    }
+                }
+            }
+
+            .text {
+                font-size: 15px;
+                color: color(lighttext);
+                line-height: 1.6;
+                margin-bottom: 20px;
+                white-space: pre-wrap;
+
+                &:nth-last-child(1) {
+                    margin-bottom: 0px;
+                }
+            }
+        }
+    }
+}
+
+.title {
+    font-size: 22px;
+    color: color(text);
+    font-weight: 800;
+}
+
+.role {
+    color: color(lighttext);
+    font-weight: 500;
+    line-height: 1.6;
+    font-size: 16px;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-bottom: 12px;
+}

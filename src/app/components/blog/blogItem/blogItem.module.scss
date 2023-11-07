@@ -1,0 +1,148 @@
+@import '../../../styles/_mixin';
+
+.blog_item {
+    position: relative;
+    width: calc((100% / 3) - 30px);
+    margin: 15px;
+    text-align: left;
+    overflow: hidden;
+
+    @include tab {
+        width: calc((100% / 2) - 30px);
+    }
+
+    @include mobile {
+        width: 100%;
+    }  
+
+    &_image {
+        position: relative;
+        height: 300px;
+        position: relative;
+
+        @include mobile {
+            height: 200px;
+        }
+
+        &::before {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(color(dark), 0.95) 10px, rgba(color(dark), 0.05), transparent);
+            position: absolute;
+            bottom: 0px;
+            z-index: 1;
+            border-radius: 30px;
+        }
+
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 30px;
+        }
+
+        &_content {
+            position: absolute;
+            bottom: 20px;
+            left: 30px;
+            right: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 2;
+
+            &_inner {
+
+                .title {
+                    font-size: 20px;
+                    color: rgba($color: color(white), $alpha: 0.9);
+                    font-weight: 900;
+                    font-family: $ptsans;
+                    margin-bottom: 2px;
+                }
+        
+                .text {
+                    font-size: 14px;
+                    color: rgba($color: color(white), $alpha: 0.65);
+                }
+            }
+
+            button {
+
+                .empty_icon {
+                    height: 20px;
+                    width: 20px;
+                    fill: color(black);
+
+                    &:hover {
+                        fill: color(primary);
+                    }
+                }
+
+                .fill {
+                    height: 20px;
+                    width: 20px;
+                    fill: color(primary);
+                }
+            }
+        }
+    }
+
+    &_content {
+        padding: 30px 15px;
+
+        .title {
+            font-size: 18px;
+            font-weight: 800;
+            line-height: 1.4;
+            color: color(text);
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+
+            @include mobile {
+                font-size: 15px;
+            }
+        }
+
+        .text {
+            font-weight: 500;
+            line-height: 1.5;
+            color: color(lighttext);
+            font-size: 16px;
+            margin: 6px 0;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+
+            &.active {
+                overflow: visible;
+                -webkit-line-clamp: inherit;
+            }
+
+            @include mobile {
+                font-size: 14px;
+            }
+        }
+
+        button {
+            font-size: 15px;
+            font-weight: 700;
+            display: flex;
+            color: color(text);
+            align-items: center;
+            justify-content: center;
+
+            svg {
+                height: 20px;
+                width: 20px;
+                transform: rotate(-45deg);
+                margin-left: 6px;
+            }
+        }
+    }
+}

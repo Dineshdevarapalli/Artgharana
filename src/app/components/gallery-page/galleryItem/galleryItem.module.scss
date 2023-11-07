@@ -1,0 +1,106 @@
+@import '../../../styles/_mixin';
+
+.gallery_item {
+    position: relative;
+    width: calc((100% / 3) - 30px);
+    margin: 15px;
+    border-radius: 30px;
+    text-align: left;
+    overflow: hidden;
+
+    @include tab {
+        width: calc((100% / 2) - 30px);
+    }
+
+    @include mobile {
+        width: 100%;
+
+    }
+
+    &::before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to top, rgba(color(dark), 0.95) 20px, rgba(color(dark), 0.05));
+        position: absolute;
+        bottom: 0px;
+        z-index: 1;
+        border-radius: 30px;
+    }
+
+    &_image {
+        height: 500px;
+        position: relative;
+        
+        @include mobile {
+            height: 400px;
+        }
+
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .play_btn {
+            z-index: 1;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            background-color: color(white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease-in-out;
+
+            svg {
+                height: 20px;
+                width: 20px;
+                fill: color(dark);
+            }
+        }
+    }
+
+    &_content {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        left: 30px;
+        right: 30px;
+        bottom: 30px;
+        z-index: 2;
+
+        .title {
+            font-size: 20px;
+            color: color(white);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .text {
+            font-size: 14px;
+            color: color(white);
+            font-weight: 400;
+            opacity: 0.5;
+
+            @include mobile {
+                font-size: 12px;
+            }
+        }
+    }
+
+    &:hover {
+
+        .gallery_item_image {
+
+            .play_btn {
+                outline: 12px solid rgba($color: color(primary), $alpha: 0.75);
+            }
+        }
+    }
+}

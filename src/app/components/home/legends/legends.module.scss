@@ -1,0 +1,206 @@
+@import '../../../styles/_mixin';
+
+.legends {
+    position: relative;
+    background-color: color(back);
+    padding: 80px 0px;
+
+    @include mobile {
+        padding: 40px 0px;
+    }
+
+    .title_wrap {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin-bottom: 80px;
+        position: relative;
+        z-index: 2;
+
+        @include mobile {
+            flex-direction: column;
+            margin-bottom: 40px;
+        }
+
+        .title {
+            font-size: 65px;
+            font-weight: bold;
+            color: color(white);
+            line-height: 1.2;
+            font-family: $ptsans;
+            text-transform: capitalize;
+
+            span {
+                display: block;
+                font-family: $ptsans;
+                color: color(primary);
+            }            
+
+            @include tab {
+                font-size: 46px;
+                padding-right: 20px;
+            }
+
+            @include mobile {
+                margin-bottom: 10px;
+            }
+        }
+
+        .btn {
+            background: linear-gradient(to right bottom, color(primary), lighten(color(primary), 2.5%));
+            border-radius: 50px;
+            padding: 5px 5px 5px 30px;
+            display: flex;
+            align-items: center;
+            text-transform: uppercase;
+            color: rgba($color: color(white), $alpha: 0.75);
+            font-size: 16px;
+            letter-spacing: 1px;
+            display: inline-flex;
+            white-space: nowrap;
+
+            @include tab {
+                font-size: 14px;
+                padding: 4px 4px 4px 20px;
+            }
+
+            @include mobile {
+                font-size: 12px;
+                padding: 3px 3px 3px 10px;
+            }
+
+            span {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: color(white);
+                height: 50px;
+                width: 50px;
+                border-radius: 50%;
+                margin-left: 20px;
+
+                @include mobile {
+                    width: 40px;
+                    height: 40px;
+                }
+
+                svg {
+                    height: 30px;
+                    width: 30px;
+                    fill: color(primary);
+                }
+            }
+        }
+    }
+
+    &_wrap {
+        z-index: 2;
+        position: relative;
+        width: calc(100% + 40px);
+        margin-left: -20px;
+
+        :global(.slick-slide) {
+            padding: 0px 15px;
+        }
+
+        .legend_item {
+            width: 100%;
+            text-align: left;
+        
+            &_image {
+                height: 400px;
+                border-radius: 30px;
+                overflow: hidden;
+                position: relative;
+        
+                img {
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                }
+        
+                .play_btn {
+                    z-index: 1;
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    height: 50px;
+                    width: 50px;
+                    border-radius: 50%;
+                    transform: translate(-50%, -50%);
+                    background-color: color(white);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transition: all 0.3s ease-in-out;
+        
+                    svg {
+                        height: 20px;
+                        width: 20px;
+                        fill: color(dark);
+                    }
+                }
+            }
+            
+            &_title {
+                padding-top: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+        
+                p {
+                    font-size: 35px;
+                    font-weight: bold;
+                    color: color(white);
+                    font-family: $ptsans;
+        
+                    @include mobile {
+                        font-size: 22px;
+                    }
+                }
+        
+                span {
+                    height: 40px;
+                    width: 40px;
+                    border-radius: 50%;
+                    background-color: transparent;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transform: rotate(-45deg);
+                    transition: all 0.2s ease-in-out;
+        
+                    svg {
+                        height: 30px;
+                        width: 30px;
+                        fill: color(primary);
+                    }
+                }
+            }
+        
+            .text {
+                font-size: 16px;
+                color: color(white);
+                opacity: 0.5;
+            }
+
+            &:hover {
+        
+                .legend_item_image {
+        
+                    .play_btn {
+                        outline: 12px solid rgba($color: color(primary), $alpha: 0.75);
+                    }
+                }
+
+                .legend_item_title {
+
+                    span {
+                        transform: rotate(0);
+                        background: linear-gradient(to right bottom, color(white), lighten(color(white), 2.5%));
+                    }
+                }
+            }
+        }
+    }
+}

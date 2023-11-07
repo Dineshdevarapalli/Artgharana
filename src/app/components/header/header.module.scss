@@ -1,0 +1,274 @@
+@import '../../styles/_mixin';
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 25px;
+    background-color: color(back);
+    width: 100%;
+    z-index: 9999;
+    overflow: hidden;
+    height: 120px;
+
+    @include mobile {
+        height: 100px;
+    }
+
+    &.abs {
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 2;
+    }
+
+    &_left {
+        display: flex;
+        align-items: center;
+        flex: 1;
+
+        .logo {
+            position: relative;
+            margin-right: 3%;
+            padding-top: 20px;
+
+            .logo_block {
+                height: 180px;
+
+                @include mobile {
+                    height: 100px;
+                }
+
+                svg {
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+        }
+
+        .menu {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            li {
+                position: relative;
+
+                a {
+                    display: block;
+                    list-style: none;
+                    font-size: 14px;
+                    padding: 0 14px;
+                    color: color(white);
+                    opacity: 0.8;
+                    line-height: 100px;
+                    white-space: nowrap;
+                }
+
+                @include small-desktop {
+                    display: none;
+
+                    .pricing {
+                        background: linear-gradient(to right bottom, color(primary), lighten(color(primary), 2.5%));
+                        box-shadow: 4px 4px 8px rgba(color(back), 0.8);
+                        border-radius: 50px;
+                        padding: 5px 5px 5px 15px;
+                        display: flex;
+                        align-items: center;
+                        text-transform: uppercase;
+                        color: rgba($color: color(white), $alpha: 0.75);
+                        font-size: 14px;
+                        letter-spacing: 1px;
+
+                        @include small-desktop {
+                            display: none;
+                        }
+
+                        span {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            background-color: color(white);
+                            height: 40px;
+                            width: 40px;
+                            border-radius: 50%;
+                            margin-left: 20px;
+
+                            svg {
+                                height: 30px;
+                                width: 30px;
+                                fill: color(primary);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+    &_right {
+        position: relative;
+
+        .pricing {
+            background: linear-gradient(to right bottom, color(primary), lighten(color(primary), 2.5%));
+            box-shadow: 4px 4px 8px rgba(color(back), 0.8);
+            border-radius: 50px;
+            padding: 5px 5px 5px 15px;
+            display: flex;
+            align-items: center;
+            text-transform: uppercase;
+            color: rgba($color: color(white), $alpha: 0.75);
+            font-size: 14px;
+            letter-spacing: 1px;
+
+            @include small-desktop {
+                display: none;
+            }
+
+            span {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: color(white);
+                height: 40px;
+                width: 40px;
+                border-radius: 50%;
+                margin-left: 12px;
+                flex-shrink: 0;
+
+                svg {
+                    height: 30px;
+                    width: 30px;
+                    fill: color(primary);
+                }
+            }
+        }
+    }
+
+    .main_menu {
+
+        button {
+
+            @include desktop {
+                display: none;
+            }
+
+            svg {
+                height: 20px;
+                width: 20px;
+                fill: white;
+            }
+        }
+    }
+
+    .menu_bar {
+        display: none;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        padding: 20px;
+
+        @include small-desktop {
+            display: block;
+            position: fixed;
+
+            &.active {
+                height: 100vh;
+                background-color: black;
+                color: white;
+                width: 300px;
+                z-index: 999;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                .menus {
+                    padding-top: 40px;
+
+                    li {
+                        position: relative;
+
+                        &::after {
+                            content: '';
+                            display: block;
+                            position: absolute;
+                            height: 2px;
+                            width: 100%;
+                            background-color: #dedede;
+                        }
+
+                        a {
+                            color: white;
+                            width: 100%;
+                            padding: 20px 0px;
+                            display: inline-block;
+                        }
+                    }
+                }
+            }
+        }
+
+        .close_icon {
+            display: none;
+
+            button {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+
+                svg {
+                    height: 20px;
+                    width: 20px;
+                    fill: color(white);
+                }
+            }
+
+            @include small-desktop {
+                display: block;
+            }
+        }
+
+        .header_right {
+
+            @include small-desktop {
+                display: block;
+            }
+        }
+
+        .header_rights {
+            margin-bottom: 20px;
+
+            .pricing {
+                background: linear-gradient(to right bottom, color(primary), lighten(color(primary), 2.5%));
+                box-shadow: 4px 4px 8px rgba(color(back), 0.8);
+                border-radius: 50px;
+                padding: 5px 5px 5px 30px;
+                display: flex;
+                align-items: center;
+                text-transform: uppercase;
+                color: rgba($color: color(white), $alpha: 0.75);
+                font-size: 14px;
+                letter-spacing: 1px;
+                justify-content: space-between;
+
+                span {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: color(white);
+                    height: 40px;
+                    width: 40px;
+                    border-radius: 50%;
+                    margin-left: 20px;
+
+                    svg {
+                        height: 30px;
+                        width: 30px;
+                        fill: color(primary);
+                    }
+                }
+            }
+        }
+    }
+}
