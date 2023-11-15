@@ -67,12 +67,12 @@ const Footer = async () => {
                                         <p className={styles.menu_item_title}>Career</p>
                                         <ul>
                                             <li>
-                                                <Link href="/become-a-teacher">
+                                                <Link href="/team-gharana">
                                                     Become a teacher
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link href="/join-our-sales-team">
+                                                <Link href="/team-gharana">
                                                     join our sales team
                                                 </Link>
                                             </li>
