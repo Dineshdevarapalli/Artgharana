@@ -58,6 +58,11 @@ const Header = () => {
                             Contact Us
                         </Link>
                     </li>
+		  <li>
+                	<Link href="/contact-us">
+                            Log into
+                </Link>
+                    </li>
                 </ul>
             </div>
             {
