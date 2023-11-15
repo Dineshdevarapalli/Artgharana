@@ -73,7 +73,7 @@ const Footer = async () => {
                                             </li>
                                             <li>
                                                 <Link href="/join-our-sales-team">
-                                                    Become a teacher
+                                                    join our sales team
                                                 </Link>
                                             </li>
                                         </ul>
