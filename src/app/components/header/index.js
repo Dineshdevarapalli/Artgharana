@@ -54,7 +54,7 @@ const Header = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link href="/contact-us">
+                        <Link href="/page.js">
                             Contact Us
                         </Link>
                     </li>
