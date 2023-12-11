@@ -12,69 +12,76 @@ import ContactForm from '../components/contact/contactForm'
 import LocateIcon from '../../../public/icons/address.svg'
 import PhoneIcon from '../../../public/icons/phone-call.svg'
 import styles from './contact.module.scss'
+const ContactForm = () => {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    phone: '',
+    email: '',
+    message: '',
+  });
+  const [cvFile, setCvFile] = useState(null);
 
-const ContactUs = async () => {
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
-    const [PageData, SEO] = await Promise.all([getContactPageData(), getContactPageSeoData()])
+  const handleFileChange = (e) => {
+    setCvFile(e.target.files[0]);
+  };
 
-    const Data = PageData?.data?.attributes || null    
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Handle the form submission, for example, by sending the data to an API
+    const data = new FormData();
+    data.append('firstName', formData.firstName);
+    data.append('lastName', formData.lastName);
+    data.append('phone', formData.phone);
+    data.append('email', formData.email);
+    data.append('message', formData.message);
+    data.append('cv', cvFile);
 
-    return (
-        <>
-            {/* <Meta {...{SEO}} /> */}
-            <div className={styles.contact}>
-                <div className='contain'>
-                    {
-                        Data ?
-                        <div className={styles.contact_wrap}>
-                            <div className={styles.contact_wrap_content}>
-                                <h1 className={styles.title}>{Data?.title}</h1>
-                                <p className={styles.sub_title}>{Data?.description}</p>
-                                <div className={styles.img_block}>
-                                    <h3 className={styles.img_block_title}>{Data?.heading}</h3>
-                                    <div className={styles.img_block_media}>
-                                        <Image
-                                            src={Api.imageUrl(Data?.image?.data?.attributes?.url)}
-                                            alt={Data?.title}
-                                            fill
-                                            style={{
-                                                objectFit: 'cover',
-                                                objectPosition: 'center'
-                                            }}
-                                            sizes="500px"
-                                        />
-                                    </div>
-                                    <p className={styles.img_block_description}>{Data?.footer_description}</p>
-                                </div>
-                                <div className={styles.address_block}>
-                                    {
-                                        Data?.address?.map((item, index) => {
-                                            return (
-                                                <div className={styles.address_block_item} key={index}>
-                                                    <p className={styles.title}>{item.country}</p>
-                                                    <p className={styles.text}>
-                                                        <span><LocateIcon/></span>
-                                                        {item.address}
-                                                    </p>
-                                                    <p className={styles.text}>
-                                                        <span><PhoneIcon/></span>
-                                                        {item.phone}
-                                                    </p>
-                                                </div>
-                                            )
-                                        })
-                                    }
-                                </div>
-                            </div>
-                            <div className={styles.contact_wrap_form}>
-                                <ContactForm {...{styles}} />
-                            </div>
-                        </div> : <NotFound />
-                    }
-                </div>
-            </div>
-        </>
-    )
-}
+    // Replace with your API endpoint
+    fetch('/api/contact', {
+      method: 'POST',
+      body: data,
+    }).then((response) => {
+      // Handle the response from the server
+    });
+  };
 
-export default ContactUs
+  return (
+    <form className={styles.contactForm} onSubmit={handleSubmit}>
+      <input
+        className={styles.inputField}
+        type="text"
+        name="firstName"
+        value={formData.firstName}
+        onChange={handleChange}
+        placeholder="First Name"
+        required
+      />
+      {/* Repeat for lastName, phone, email */}
+      <textarea
+        className={styles.textArea}
+        name="message"
+        value={formData.message}
+        onChange={handleChange}
+        placeholder="Your Message"
+        required
+      />
+      <input
+        className={styles.fileInput}
+        type="file"
+        onChange={handleFileChange}
+        accept=".pdf,.doc,.docx"
+        required
+      />
+      <button className={styles.submitButton} type="submit">Submit</button>
+    </form>
+  );
+};
+
+export default ContactForm;
+
+// export default ContactUs
