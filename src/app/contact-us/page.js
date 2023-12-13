@@ -1,248 +1,83 @@
 "use client";
-import React, { useEffect } from 'react'
-import { useForm, Controller } from 'react-hook-form'
-import * as yup from "yup"
-import { yupResolver } from "@hookform/resolvers/yup"
+import React from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
 import { codes } from 'country-calling-code'
-import CustomInput from '../../formUtilities/customInput'
-import CustomSelect from '../../formUtilities/customSelect'
-import CustomPhoneInput from '../../formUtilities/customPhoneInput';
-import FormFields from '../../../models/formfields.json'
+import toast from 'react-hot-toast'
+import { Api } from '../utils/Api'
+import { getContactPageData, getContactPageSeoData } from '../utils/ServerCalls'
+import Meta from '../components/common/meta'
+import Spinner from '../components/common/spinner'
+import NotFound from '../components/common/notfound'
+import ContactForm from '../components/contact/contactForm'
+import LocateIcon from '../../../public/icons/address.svg'
+import PhoneIcon from '../../../public/icons/phone-call.svg'
+import styles from './contact.module.scss'
 
-const ContactForm = ({
-    styles
-}) => {
+const ContactUs = async () => {
 
-    const { setValue, control, handleSubmit, formState: { errors } } = useForm({
-        resolver: yupResolver(schema)
-    })
-    const onSubmit = data => console.log(data)
+    const [PageData, SEO] = await Promise.all([getContactPageData(), getContactPageSeoData()])
 
-    const FormBuilder = [
-        {
-            name: 'first_name',
-            parent: 'contact',
-            styles,
-            control,
-            type: 'text',
-            label: true
-        },
-        {
-            name: 'last_name',
-            parent: 'contact',
-            styles,
-            control,
-            type: 'text',
-            label: true
-        },
-        {
-            name: 'email',
-            parent: 'contact',
-            styles,
-            control,
-            type: 'email',
-            label: true
-        },
-        {
-            name: 'phone',
-            parent: 'contact',
-            styles,
-            control,
-            type: 'phone',
-            label: true,
-            inputWrapper: true,
-            setValue: setValue
-        },
-        {
-            name: 'country',
-            parent: 'contact',
-            styles,
-            control,
-            type: 'select',
-            label: true,
-            data: codes.map(item => {return {
-                id: item.country,
-                title: item.country,
-            }}),
-            searchable: true,
-            label: true,
-            multi: false,
-            show: false
-        },
-        {
-            name: 'art_forms',
-            parent: 'contact',
-            styles,
-            control,
-            type: 'select',
-            label: true,
-            data: [
-                {
-                    id: 'Abacus',
-                    title: 'Abacus'
-                },
-                {
-                    id: 'Art & Craft',
-                    title: 'Art & Craft'
-                },
-                {
-                    id: 'Bharatanatyam',
-                    title: 'Bharatanatyam'
-                },
-                {
-                    id: 'Bollywood Dance',
-                    title: 'Bollywood Dance'
-                },
-                {
-                    id: 'chess',
-                    title: 'chess'
-                },
-                {
-                    id: 'Carnatic Vocal',
-                    title: 'Carnatic Vocal'
-                },
-                {
-                    id: 'Dhol',
-                    title: 'Dhol'
-                },
-                {
-                    id: 'Drums',
-                    title: 'Drums'
-                },
-                {
-                    id: 'Flute',
-                    title: 'Flute'
-                },
-                {
-                    id: 'Guitar',
-                    title: 'Guitar'
-                },
-                {
-                    id: 'Hindi',
-                    title: 'Hindi'
-                },
-                {
-                    id: 'Hindustani Vocals',
-                    title: 'Hindustani Vocals'
-                },
-                {
-                    id: 'Kathak',
-                    title: 'Kathak'
-                },
-                {
-                    id: 'Piano',
-                    title: 'Piano'
-                },
-                {
-                    id: 'Saxophone',
-                    title: 'Saxophone'
-                },
-                {
-                    id: 'Tabla',
-                    title: 'Tabla'
-                },
-                {
-                    id: 'Ukelele',
-                    title: 'Ukelele'
-                },
-                {
-                    id: 'Violin',
-                    title: 'Violin'
-                },
-                {
-                    id: 'Western Vocals',
-                    title: 'Western Vocals'
-                },
-                {
-                    id: 'Yoga',
-                    title: 'Yoga'
-                },
-        
-            ],
-            label: true,
-            multi: false,
-            show: false
-        },
-        {
-            name: 'message',
-            parent: 'contact',
-            styles,
-            control,
-            type: 'textarea',
-            label: true,
-            full: true
-        },
-    ]
-
-    useEffect(() => {
-        setValue('country_code', 'IN')
-    }, [])
+    const Data = PageData?.data?.attributes || null    
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            {
-                FormBuilder.map(item => {
-                    return (
-                        <div className={`${styles.input_wrap} ${item?.full ? styles.full : ''}`} key={item.name}>
-                            {
-                                item.type == 'select' ?
-                                <CustomSelect
-                                    {...item}
-                                /> :
-                                item.type == 'phone' ?
-                                <CustomPhoneInput
-                                    {...item}
-                                /> :
-                                <CustomInput
-                                    {...item}
-                                />
-                            }
-                        </div>
-                    )
-                })
-            }
-            <div className={`${styles.input_wrap} ${styles.full}`}>
-                <input type='submit' value="Submit" />
+        <>
+            {/* <Meta {...{SEO}} /> */}
+
+            <div className={styles.contact}>
+        
+                <div className='contain'>
+                    {
+                        Data ?
+                        <div className={styles.contact_wrap}>
+                            <div className={styles.contact_wrap_content}>
+                                <h1 className={styles.title}>{Data?.title}</h1>
+                                <p className={styles.sub_title}>{Data?.description}</p>
+                                <div className={styles.img_block}>
+                                    <h3 className={styles.img_block_title}>{Data?.heading}</h3>
+                                    <div className={styles.img_block_media}>
+                                        <Image
+                                            src={Api.imageUrl(Data?.image?.data?.attributes?.url)}
+                                            alt={Data?.title}
+                                            fill
+                                            style={{
+                                                objectFit: 'cover',
+                                                objectPosition: 'center'
+                                            }}
+                                            sizes="500px"
+                                        />
+                                    </div>
+                                    <p className={styles.img_block_description}>{Data?.footer_description}</p>
+                                </div>
+                                <div className={styles.address_block}>
+                                    {
+                                        Data?.address?.map((item, index) => {
+                                            return (
+                                                <div className={styles.address_block_item} key={index}>
+                                                    <p className={styles.title}>{item.country}</p>
+                                                    <p className={styles.text}>
+                                                        <span><LocateIcon/></span>
+                                                        {item.address}
+                                                    </p>
+                                                    <p className={styles.text}>
+                                                        <span><PhoneIcon/></span>
+                                                        {item.phone}
+                                                    </p>
+                                                </div>
+                                            )
+                                        })
+                                    }
+                                </div>
+                            </div>
+                            <div className={styles.contact_wrap_form}>
+                                <ContactForm {...{styles}} />
+                            </div>
+                        </div> : <NotFound />
+                    }
+                </div>
             </div>
-        </form>
+        </>
     )
 }
 
-export default ContactForm
-
-const schema = yup.object().shape({
-    first_name:
-        yup.string()
-            .required(FormFields.contact.first_name.errors.required)
-            .max(40, FormFields.contact.first_name.errors.max)
-            .min(3, FormFields.contact.first_name.errors.min),
-    last_name:
-        yup.string()
-            .required(FormFields.contact.last_name.errors.required)
-            .max(40, FormFields.contact.last_name.errors.max)
-            .min(3, FormFields.contact.last_name.errors.min),
-    email:
-        yup.string()
-            .email(FormFields.contact.email.errors.valid)
-            .required(FormFields.contact.email.errors.required),
-    phone:
-        yup.string()
-            .nullable()
-            .required(FormFields.contact.phone.errors.required)
-            .max(15, FormFields.contact.phone.errors.max),
-    country:
-        yup.array().of(yup.string())
-            .required(FormFields.contact.country.errors.required),
-    art_forms:
-        yup.array().of(yup.string())
-            .required(FormFields.contact.art_forms.errors.required),
-    message:
-        yup.string()
-            .required(FormFields.contact.message.errors.required)
-            .max(200, FormFields.contact.message.errors.max)
-            .min(20, FormFields.contact.message.errors.min),
-    country_code:
-        yup.string(),
-    calling_code:
-        yup.string(),
-})
+export default ContactUs
